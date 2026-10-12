@@ -1,0 +1,44 @@
+package com.google.android.material.transition;
+
+import android.animation.Animator;
+import android.animation.ValueAnimator;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+/* loaded from: classes.dex */
+public final class FadeProvider implements VisibilityAnimatorProvider {
+
+    /* renamed from: a, reason: collision with root package name */
+    public float f3398a = 1.0f;
+
+    public float getIncomingEndThreshold() {
+        return this.f3398a;
+    }
+
+    public void setIncomingEndThreshold(float f) {
+        this.f3398a = f;
+    }
+
+    @Override // com.google.android.material.transition.VisibilityAnimatorProvider
+    @Nullable
+    public Animator createAppear(@NonNull ViewGroup viewGroup, @NonNull View view) {
+        float alpha = view.getAlpha() != 0.0f ? view.getAlpha() : 1.0f;
+        float f = this.f3398a;
+        ValueAnimator valueAnimatorOfFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+        valueAnimatorOfFloat.addUpdateListener(new d(view, 0.0f, alpha, f));
+        valueAnimatorOfFloat.addListener(new e(view, alpha));
+        return valueAnimatorOfFloat;
+    }
+
+    @Override // com.google.android.material.transition.VisibilityAnimatorProvider
+    @Nullable
+    public Animator createDisappear(@NonNull ViewGroup viewGroup, @NonNull View view) {
+        float alpha = view.getAlpha() == 0.0f ? 1.0f : view.getAlpha();
+        ValueAnimator valueAnimatorOfFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+        valueAnimatorOfFloat.addUpdateListener(new d(view, alpha, 0.0f, 1.0f));
+        valueAnimatorOfFloat.addListener(new e(view, alpha));
+        return valueAnimatorOfFloat;
+    }
+}

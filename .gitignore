@@ -1,0 +1,9 @@
+/.cache/
+/out/
+/apk/build/
+/apk/dist/
+*.apk
+*.jks
+*.keystore
+*.idsig
+__pycache__/

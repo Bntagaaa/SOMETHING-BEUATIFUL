@@ -1,0 +1,66 @@
+{
+  "ADMIN": [],
+  "CBT1": [
+    "DETECTBLUETOOTH",
+    "FRTRCTHEADSET"
+  ],
+  "CBT2": [
+    "DETECTBLUETOOTH",
+    "FRTRCTHEADSET"
+  ],
+  "CBT3": [
+    "DETECTBLUETOOTH",
+    "FRTRCTHEADSET"
+  ],
+  "CBT_ADV": [],
+  "CBT_ADV2": [],
+  "CBT_ADV3": [],
+  "DETECTBLUETOOTH": [],
+  "DEVELOPER": [],
+  "EP1MV8XSB0X": [],
+  "FRTRCTHEADSET": [],
+  "HOME": [
+    "DEVELOPER",
+    "HOMEPRIORITAS",
+    "INFO",
+    "KONFIRMASIFLOAT",
+    "LISENSI",
+    "VM05PR0",
+    "WEB",
+    "WWxkR2VXSkhiSFU9"
+  ],
+  "HOMEPRIORITAS": [
+    "CBT1",
+    "CBT2",
+    "CBT3",
+    "HOME",
+    "URL"
+  ],
+  "INFO": [],
+  "KONFIRMASIFLOAT": [
+    "Screen1"
+  ],
+  "LISENSI": [],
+  "M45T4HV": [],
+  "QRSCREEN": [
+    "DETECTBLUETOOTH",
+    "FRTRCTHEADSET"
+  ],
+  "QR_ADV": [],
+  "SCREENVM": [],
+  "Screen1": [
+    "ADMIN",
+    "DETECTBLUETOOTH",
+    "FRTRCTHEADSET",
+    "HOME"
+  ],
+  "URL": [
+    "DETECTBLUETOOTH",
+    "FRTRCTHEADSET"
+  ],
+  "URL_ADV": [],
+  "VM05PR0": [],
+  "WEB": [],
+  "test": [],
+  "url2": []
+}

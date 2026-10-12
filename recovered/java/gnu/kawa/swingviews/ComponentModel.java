@@ -1,0 +1,19 @@
+package gnu.kawa.swingviews;
+
+import gnu.kawa.models.Display;
+import gnu.kawa.models.Model;
+import java.awt.Component;
+
+/* loaded from: classes2.dex */
+class ComponentModel extends Model {
+    Component component;
+
+    public ComponentModel(Component component) {
+        this.component = component;
+    }
+
+    @Override // gnu.kawa.models.Viewable
+    public void makeView(Display display, Object obj) {
+        display.addView(this.component, obj);
+    }
+}

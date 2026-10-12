@@ -1,0 +1,119 @@
+{
+  "ADMIN": [
+    "kontras",
+    "volume",
+    "warna"
+  ],
+  "CBT1": [
+    "G",
+    "keluar",
+    "useragent",
+    "volume"
+  ],
+  "CBT2": [
+    "G",
+    "keluar",
+    "useragent",
+    "volume"
+  ],
+  "CBT3": [
+    "G",
+    "keluar",
+    "useragent",
+    "volume"
+  ],
+  "CBT_ADV": [
+    "G",
+    "keluar",
+    "useragent",
+    "volume"
+  ],
+  "CBT_ADV2": [
+    "G",
+    "keluar",
+    "useragent",
+    "volume"
+  ],
+  "CBT_ADV3": [
+    "G",
+    "keluar",
+    "useragent",
+    "volume"
+  ],
+  "DETECTBLUETOOTH": [],
+  "DEVELOPER": [
+    "dev",
+    "nama",
+    "warna"
+  ],
+  "EP1MV8XSB0X": [],
+  "FRTRCTHEADSET": [],
+  "HOME": [
+    "QR_ADV",
+    "keluar",
+    "kontras",
+    "nama",
+    "slider1",
+    "warna"
+  ],
+  "HOMEPRIORITAS": [
+    "QRSCREEN",
+    "warna"
+  ],
+  "INFO": [
+    "info",
+    "warna"
+  ],
+  "KONFIRMASIFLOAT": [],
+  "LISENSI": [
+    "warna"
+  ],
+  "M45T4HV": [],
+  "QRSCREEN": [
+    "G",
+    "keluar",
+    "useragent",
+    "volume"
+  ],
+  "QR_ADV": [
+    "G",
+    "keluar",
+    "useragent",
+    "volume"
+  ],
+  "SCREENVM": [],
+  "Screen1": [
+    "G",
+    "dev",
+    "info",
+    "keluar",
+    "kontras",
+    "lock",
+    "masuk",
+    "nama",
+    "slider1",
+    "useragent",
+    "volume",
+    "warna",
+    "web"
+  ],
+  "URL": [
+    "G",
+    "keluar",
+    "useragent",
+    "volume"
+  ],
+  "URL_ADV": [
+    "G",
+    "keluar",
+    "useragent",
+    "volume"
+  ],
+  "VM05PR0": [],
+  "WEB": [
+    "warna",
+    "web"
+  ],
+  "test": [],
+  "url2": []
+}

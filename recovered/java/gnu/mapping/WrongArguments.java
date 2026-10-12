@@ -1,0 +1,75 @@
+package gnu.mapping;
+
+/* loaded from: classes2.dex */
+public class WrongArguments extends IllegalArgumentException {
+    public int number;
+    Procedure proc;
+    public String procname;
+    public String usage;
+
+    public static String checkArgCount(Procedure procedure, int i) {
+        int iNumArgs = procedure.numArgs();
+        int i2 = iNumArgs & 4095;
+        int i3 = iNumArgs >> 12;
+        String name = procedure.getName();
+        if (name == null) {
+            name = procedure.getClass().getName();
+        }
+        return checkArgCount(name, i2, i3, i);
+    }
+
+    public static String checkArgCount(String str, int i, int i2, int i3) {
+        boolean z;
+        if (i3 < i) {
+            z = false;
+        } else {
+            if (i2 < 0 || i3 <= i2) {
+                return null;
+            }
+            z = true;
+        }
+        StringBuffer stringBuffer = new StringBuffer(100);
+        stringBuffer.append("call to ");
+        if (str == null) {
+            stringBuffer.append("unnamed procedure");
+        } else {
+            stringBuffer.append('\'');
+            stringBuffer.append(str);
+            stringBuffer.append('\'');
+        }
+        stringBuffer.append(z ? " has too many" : " has too few");
+        stringBuffer.append(" arguments (");
+        stringBuffer.append(i3);
+        if (i == i2) {
+            stringBuffer.append("; must be ");
+            stringBuffer.append(i);
+        } else {
+            stringBuffer.append("; min=");
+            stringBuffer.append(i);
+            if (i2 >= 0) {
+                stringBuffer.append(", max=");
+                stringBuffer.append(i2);
+            }
+        }
+        stringBuffer.append(')');
+        return stringBuffer.toString();
+    }
+
+    @Override // java.lang.Throwable
+    public String getMessage() {
+        String strCheckArgCount;
+        Procedure procedure = this.proc;
+        return (procedure == null || (strCheckArgCount = checkArgCount(procedure, this.number)) == null) ? super.getMessage() : strCheckArgCount;
+    }
+
+    public WrongArguments(Procedure procedure, int i) {
+        this.proc = procedure;
+        this.number = i;
+    }
+
+    public WrongArguments(String str, int i, String str2) {
+        this.procname = str;
+        this.number = i;
+        this.usage = str2;
+    }
+}

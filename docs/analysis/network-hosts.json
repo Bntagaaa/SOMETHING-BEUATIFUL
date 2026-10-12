@@ -1,0 +1,54 @@
+{
+  "examdb.r-developer.my.id": [
+    "ADMIN"
+  ],
+  "crm.rdevserverone.com": [
+    "CBT1",
+    "CBT2",
+    "CBT3",
+    "CBT_ADV",
+    "CBT_ADV2",
+    "CBT_ADV3",
+    "QRSCREEN",
+    "QR_ADV",
+    "Screen1",
+    "URL",
+    "URL_ADV"
+  ],
+  "www.google.com": [
+    "CBT1",
+    "CBT2",
+    "CBT3",
+    "CBT_ADV",
+    "CBT_ADV2",
+    "CBT_ADV3",
+    "QRSCREEN",
+    "QR_ADV",
+    "URL",
+    "URL_ADV"
+  ],
+  "policies.google.com": [
+    "CBT1",
+    "CBT2",
+    "CBT3",
+    "CBT_ADV",
+    "CBT_ADV2",
+    "CBT_ADV3",
+    "QRSCREEN",
+    "QR_ADV",
+    "URL",
+    "URL_ADV"
+  ],
+  "www.google.co": [
+    "CBT_ADV",
+    "CBT_ADV2",
+    "CBT_ADV3",
+    "QRSCREEN",
+    "QR_ADV",
+    "URL",
+    "URL_ADV"
+  ],
+  "sites.google.com": [
+    "LISENSI"
+  ]
+}

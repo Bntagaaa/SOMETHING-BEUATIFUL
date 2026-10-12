@@ -1,0 +1,133 @@
+package com.google.android.material.transition;
+
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.content.Context;
+import android.content.res.Resources;
+import android.util.Property;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.Px;
+import androidx.annotation.RestrictTo;
+import androidx.core.view.ViewCompat;
+import com.google.android.material.R;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+/* loaded from: classes.dex */
+public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
+
+    /* renamed from: a, reason: collision with root package name */
+    public int f3412a;
+
+    /* renamed from: b, reason: collision with root package name */
+    public int f3413b = -1;
+
+    @Retention(RetentionPolicy.SOURCE)
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+    public @interface GravityFlag {
+    }
+
+    public SlideDistanceProvider(int i) {
+        this.f3412a = i;
+    }
+
+    public int getSlideEdge() {
+        return this.f3412a;
+    }
+
+    public void setSlideEdge(int i) {
+        this.f3412a = i;
+    }
+
+    @Px
+    public int getSlideDistance() {
+        return this.f3413b;
+    }
+
+    public void setSlideDistance(@Px int i) {
+        if (i < 0) {
+            throw new IllegalArgumentException("Slide distance must be positive. If attempting to reverse the direction of the slide, use setSlideEdge(int) instead.");
+        }
+        this.f3413b = i;
+    }
+
+    @Override // com.google.android.material.transition.VisibilityAnimatorProvider
+    @Nullable
+    public Animator createAppear(@NonNull ViewGroup viewGroup, @NonNull View view) throws Resources.NotFoundException {
+        int i = this.f3412a;
+        Context context = view.getContext();
+        int dimensionPixelSize = this.f3413b;
+        if (dimensionPixelSize == -1) {
+            dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.mtrl_transition_shared_axis_slide_distance);
+        }
+        float translationX = view.getTranslationX();
+        float translationY = view.getTranslationY();
+        if (i == 3) {
+            return a(view, dimensionPixelSize + translationX, translationX, translationX);
+        }
+        if (i == 5) {
+            return a(view, translationX - dimensionPixelSize, translationX, translationX);
+        }
+        if (i == 48) {
+            return b(view, translationY - dimensionPixelSize, translationY, translationY);
+        }
+        if (i == 80) {
+            return b(view, dimensionPixelSize + translationY, translationY, translationY);
+        }
+        if (i == 8388611) {
+            return a(view, ViewCompat.getLayoutDirection(viewGroup) == 1 ? dimensionPixelSize + translationX : translationX - dimensionPixelSize, translationX, translationX);
+        }
+        if (i == 8388613) {
+            return a(view, ViewCompat.getLayoutDirection(viewGroup) == 1 ? translationX - dimensionPixelSize : dimensionPixelSize + translationX, translationX, translationX);
+        }
+        throw new IllegalArgumentException(_COROUTINE.a.d(i, "Invalid slide direction: "));
+    }
+
+    @Override // com.google.android.material.transition.VisibilityAnimatorProvider
+    @Nullable
+    public Animator createDisappear(@NonNull ViewGroup viewGroup, @NonNull View view) throws Resources.NotFoundException {
+        int i = this.f3412a;
+        Context context = view.getContext();
+        int dimensionPixelSize = this.f3413b;
+        if (dimensionPixelSize == -1) {
+            dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.mtrl_transition_shared_axis_slide_distance);
+        }
+        float translationX = view.getTranslationX();
+        float translationY = view.getTranslationY();
+        if (i == 3) {
+            return a(view, translationX, translationX - dimensionPixelSize, translationX);
+        }
+        if (i == 5) {
+            return a(view, translationX, dimensionPixelSize + translationX, translationX);
+        }
+        if (i == 48) {
+            return b(view, translationY, dimensionPixelSize + translationY, translationY);
+        }
+        if (i == 80) {
+            return b(view, translationY, translationY - dimensionPixelSize, translationY);
+        }
+        if (i == 8388611) {
+            return a(view, translationX, ViewCompat.getLayoutDirection(viewGroup) == 1 ? translationX - dimensionPixelSize : dimensionPixelSize + translationX, translationX);
+        }
+        if (i == 8388613) {
+            return a(view, translationX, ViewCompat.getLayoutDirection(viewGroup) == 1 ? dimensionPixelSize + translationX : translationX - dimensionPixelSize, translationX);
+        }
+        throw new IllegalArgumentException(_COROUTINE.a.d(i, "Invalid slide direction: "));
+    }
+
+    public static ObjectAnimator a(View view, float f, float f2, float f3) {
+        ObjectAnimator objectAnimatorOfPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat((Property<?, Float>) View.TRANSLATION_X, f, f2));
+        objectAnimatorOfPropertyValuesHolder.addListener(new p(view, f3));
+        return objectAnimatorOfPropertyValuesHolder;
+    }
+
+    public static ObjectAnimator b(View view, float f, float f2, float f3) {
+        ObjectAnimator objectAnimatorOfPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat((Property<?, Float>) View.TRANSLATION_Y, f, f2));
+        objectAnimatorOfPropertyValuesHolder.addListener(new q(view, f3));
+        return objectAnimatorOfPropertyValuesHolder;
+    }
+}

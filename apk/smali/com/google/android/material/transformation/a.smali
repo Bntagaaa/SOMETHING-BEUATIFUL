@@ -1,0 +1,36 @@
+.class Lcom/google/android/material/transformation/a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+
+
+# instance fields
+.field public final synthetic a:Landroid/view/View;
+
+
+# direct methods
+.method public constructor <init>(Landroid/view/View;)V
+    .locals 0
+
+    .line 342
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/google/android/material/transformation/a;->a:Landroid/view/View;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+    .locals 0
+
+    .line 345
+    iget-object p1, p0, Lcom/google/android/material/transformation/a;->a:Landroid/view/View;
+
+    invoke-virtual {p1}, Landroid/view/View;->invalidate()V
+
+    return-void
+.end method

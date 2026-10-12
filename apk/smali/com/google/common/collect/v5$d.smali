@@ -1,0 +1,169 @@
+.class Lcom/google/common/collect/v5$d;
+.super Lcom/google/common/collect/AbstractIterator;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/google/common/collect/v5;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x1
+    name = "d"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lcom/google/common/collect/AbstractIterator<",
+        "TC;>;"
+    }
+.end annotation
+
+
+# instance fields
+.field public final c:Ljava/util/Map;
+
+.field public final d:Ljava/util/Iterator;
+
+.field public e:Ljava/util/Iterator;
+
+
+# direct methods
+.method public constructor <init>(Lcom/google/common/collect/v5;)V
+    .locals 1
+
+    .line 691
+    invoke-direct {p0}, Lcom/google/common/collect/AbstractIterator;-><init>()V
+
+    .line 694
+    iget-object v0, p1, Lcom/google/common/collect/v5;->d:Lcom/google/common/base/Supplier;
+
+    invoke-interface {v0}, Lcom/google/common/base/Supplier;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map;
+
+    iput-object v0, p0, Lcom/google/common/collect/v5$d;->c:Ljava/util/Map;
+
+    .line 695
+    iget-object p1, p1, Lcom/google/common/collect/v5;->c:Ljava/util/Map;
+
+    invoke-interface {p1}, Ljava/util/Map;->values()Ljava/util/Collection;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/google/common/collect/v5$d;->d:Ljava/util/Iterator;
+
+    .line 88
+    sget-object p1, Lcom/google/common/collect/Iterators$j;->d:Lcom/google/common/collect/UnmodifiableListIterator;
+
+    .line 696
+    iput-object p1, p0, Lcom/google/common/collect/v5$d;->e:Ljava/util/Iterator;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public computeNext()Ljava/lang/Object;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TC;"
+        }
+    .end annotation
+
+    .line 701
+    :cond_0
+    :goto_0
+    iget-object v0, p0, Lcom/google/common/collect/v5$d;->e:Ljava/util/Iterator;
+
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    .line 702
+    iget-object v0, p0, Lcom/google/common/collect/v5$d;->e:Ljava/util/Iterator;
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map$Entry;
+
+    .line 703
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/google/common/collect/v5$d;->c:Ljava/util/Map;
+
+    invoke-interface {v2, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    .line 704
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v3
+
+    invoke-interface {v2, v1, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    .line 705
+    invoke-interface {v0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v0
+
+    return-object v0
+
+    .line 707
+    :cond_1
+    iget-object v0, p0, Lcom/google/common/collect/v5$d;->d:Ljava/util/Iterator;
+
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    .line 708
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Map;
+
+    invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/google/common/collect/v5$d;->e:Ljava/util/Iterator;
+
+    goto :goto_0
+
+    .line 710
+    :cond_2
+    invoke-virtual {p0}, Lcom/google/common/collect/AbstractIterator;->endOfData()Ljava/lang/Object;
+
+    move-result-object v0
+
+    return-object v0
+.end method
